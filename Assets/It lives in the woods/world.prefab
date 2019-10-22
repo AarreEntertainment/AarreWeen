@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8508367922817589208}
   - component: {fileID: 813125360241731054}
   - component: {fileID: 6373794550466091287}
-  - component: {fileID: 3704632103072061436}
+  - component: {fileID: 7640398921032132503}
   m_Layer: 0
   m_Name: world
   m_TagString: Untagged
@@ -79,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3704632103072061436
+--- !u!64 &7640398921032132503
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,4 +92,4 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
-  m_Mesh: {fileID: -462981019419857548, guid: 78804c0243d272f4d9a0e0bf3ecf0436, type: 3}
+  m_Mesh: {fileID: -4078256734874858743, guid: 78804c0243d272f4d9a0e0bf3ecf0436, type: 3}
