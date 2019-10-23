@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e52696ed2f63e044a1b32327baf9a40, type: 3}
+  m_Name: QuestionList
+  m_EditorClassIdentifier: 
+  AllQuestions:
+  - QuestionText: "Ket\xE4 kekkonen on"
+    CorrectAnswer: no vittu residentti
+    WrongAnswerOne: "ket\xE4?"
+    WrongAnswerTwo: ei kinosta
+    RelevantPaper: 0
+  - QuestionText: "Ket\xE4 rane on?"
+    CorrectAnswer: Rane on Kingi
+    WrongAnswerOne: "joku perseen silim\xE4"
+    WrongAnswerTwo: joku hippo potamus
+    RelevantPaper: 1
+  - QuestionText: "Mit\xE4 kekoinen tyk\xE4si teh\xE4"
+    CorrectAnswer: "HIIHT\xC4\xC4"
+    WrongAnswerOne: "Narkata ja k\xE4yd\xE4 huorissa"
+    WrongAnswerTwo: "top 3 hevib\xE4ndit"
+    RelevantPaper: 0
+  - QuestionText: "Mit\xE4 Rane ker\xE4s"
+    CorrectAnswer: "Kindereit\xE4"
+    WrongAnswerOne: "Syytteit\xE4"
+    WrongAnswerTwo: Vankeja
+    RelevantPaper: 1
+  - QuestionText: "Min\xE4 vuonna Rane opetti?"
+    CorrectAnswer: 94-98 (paras)
+    WrongAnswerOne: joku paska kaks tuhatta luku
+    WrongAnswerTwo: lasten kakstuhat kymmenen luku
+    RelevantPaper: 1
+  - QuestionText: 
+    CorrectAnswer: 
+    WrongAnswerOne: 
+    WrongAnswerTwo: 
+    RelevantPaper: 0
+  AllPapers:
+  - "Kekkonen on residentti ja urho kaleva ja kaikin puolin hieno mies.\nKalju mies
+    t\xE4m\xE4 residentti kans oli ja tykk\xE4si hiiht\xE4\xE4 ja tehd\xE4 kaikkea
+    no.\nKaikkea Kovin Miehek\xE4st\xE4 ja Hienoa.\nHieno mies oli."
+  - "Rane (Rauno Linna) on kingi ja historian maikka joka opetti alle kirjoittanutta
+    vuosina 1994-1998.\n\nRane on Hieno mies ja ker\xE4si kindereit\xE4 ja kaikkea."

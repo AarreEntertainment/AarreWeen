@@ -14,16 +14,18 @@ public class MonsterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(findScent());
+        StartCoroutine(FindScent());
     }
-    IEnumerator findScent()
+    IEnumerator FindScent()
     {
-        yield return new WaitForSeconds(2);
+        savedScentPosition = 0;
+        yield return new WaitForSeconds(5);
         Scent = Player.GetComponent<LeaveTrace>().scents[Player.GetComponent<LeaveTrace>().scents.Count - 1];
     }
 
     public void NextScent()
     {
+        Debug.Log("Monster moving to next scent");
         int ScentIndex = Player.GetComponent<LeaveTrace>().scents.IndexOf(Scent);
         if (ScentIndex != 0)
         {
@@ -36,22 +38,40 @@ public class MonsterController : MonoBehaviour
     }
     public void JumpScare()
     {
+        
+        GetComponent<Animator>().SetFloat("Speed", 0);
+        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled=false;
         transform.LookAt(Player.transform.position);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         transform.position = ScarePosition.transform.position;
         JumpScareEvent.Invoke();
         GetComponent<Animator>().SetTrigger("scream");
         jumpScared = true;
-        GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
+        
     }
-
+    int savedScentPosition = 0;
     // Update is called once per frame
     void Update()
     {
         if (jumpScared)
+        {
             return;
+        }
         GetComponent<Animator>().SetFloat("Speed", GetComponent<UnityEngine.AI.NavMeshAgent>().speed);
         if(Vector3.Distance(transform.position, Player.transform.position) < 50) { music.volume = 0.5f + 0.5f / Vector3.Distance(transform.position, Player.transform.position); }
-        if (Scent != null) { GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(Scent.transform.position); }
+        if (Scent != null) {
+            GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(Scent.transform.position);
+            int scentIndex = Player.GetComponent<LeaveTrace>().scents.IndexOf(Scent);
+            if (scentIndex < savedScentPosition)
+            {
+                Debug.Log(Time.timeSinceLevelLoad.ToString()+"monster lost scent");
+                Scent = null;
+                StartCoroutine(FindScent());
+            }
+            else
+            {
+                savedScentPosition = scentIndex;
+            }
+        }
     }
 }

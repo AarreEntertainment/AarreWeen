@@ -17,7 +17,7 @@ public class LeaveTrace : MonoBehaviour
                 scents.Add(newscent);
             }
         }
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(6);
         GameObject currScent = scents[scents.Count - 1];
         scents.RemoveAt(scents.Count - 1);
         List<GameObject> replacementScents = new List<GameObject>();
