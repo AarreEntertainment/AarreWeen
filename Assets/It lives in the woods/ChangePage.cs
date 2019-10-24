@@ -35,6 +35,11 @@ public class ChangePage : MonoBehaviour
         {
             panel.SetActive(false);
         }
+        else
+        {
+            panel.SetActive(false);
+            GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterController>().JumpScare();
+        }
     }
     public void Close()
     {

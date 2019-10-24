@@ -44,8 +44,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 		Vector2 m_PreviousTouchPos; // swipe style control touch
 
 
-#if !UNITY_EDITOR
-    private Vector3 m_Center;
+#if UNITY_ANDROID
+        private Vector3 m_Center;
     private Image m_Image;
 #else
 		Vector3 m_PreviousMouse;
@@ -58,13 +58,14 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         void Start()
         {
-#if !UNITY_EDITOR
+            old = GetComponent<Image>().color;
+#if UNITY_ANDROID
             m_Image = GetComponent<Image>();
             m_Center = m_Image.transform.position;
 #endif
         }
 
-		void CreateVirtualAxes()
+        void CreateVirtualAxes()
 		{
 			// set axes to use
 			m_UseX = (axesToUse == AxisOption.Both || axesToUse == AxisOption.OnlyHorizontal);
@@ -102,12 +103,12 @@ namespace UnityStandardAssets.CrossPlatformInput
 		{
 			m_Dragging = true;
 			m_Id = data.pointerId;
-#if !UNITY_EDITOR
+#if UNITY_ANDROID
         if (controlStyle != ControlStyle.Absolute )
             m_Center = data.position;
 #endif
 		}
-
+        Color old;
 		void Update()
 		{
 			if (!m_Dragging)
@@ -116,8 +117,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 			}
 			if (Input.touchCount >= m_Id + 1 && m_Id != -1)
 			{
-#if !UNITY_EDITOR
-
+#if UNITY_ANDROID
+            GetComponent<Image>().color = Color.clear;
             if (controlStyle == ControlStyle.Swipe)
             {
                 m_Center = m_PreviousTouchPos;
@@ -127,7 +128,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             pointerDelta.x *= Xsensitivity;
             pointerDelta.y *= Ysensitivity;
 #else
-				Vector2 pointerDelta;
+                Vector2 pointerDelta;
 				pointerDelta.x = Input.mousePosition.x - m_PreviousMouse.x;
 				pointerDelta.y = Input.mousePosition.y - m_PreviousMouse.y;
 				m_PreviousMouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
@@ -142,6 +143,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 			m_Dragging = false;
 			m_Id = -1;
 			UpdateVirtualAxes(Vector3.zero);
+
 		}
 
 		void OnDisable()

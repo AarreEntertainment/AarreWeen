@@ -57,10 +57,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
         }
 
+        public bool dead = false;
 
         // Update is called once per frame
         private void Update()
         {
+
+                
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -94,6 +97,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
+            if (dead)
+            {
+                m_MoveDir = Vector3.zero;
+                m_Jump = false;
+                return;
+            }
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
@@ -207,12 +216,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
             float vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
+
             bool waswalking = m_IsWalking;
 
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
-            m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+            m_IsWalking = Input.GetButton("Fire1");
 #endif
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
@@ -236,6 +246,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
         {
+            if(!dead)
             m_MouseLook.LookRotation (transform, m_Camera.transform);
         }
 

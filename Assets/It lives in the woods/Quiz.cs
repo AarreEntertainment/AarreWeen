@@ -9,7 +9,7 @@ public class Quiz : MonoBehaviour
     public string questionText;
     public int CorrectAnswer;
     public List<string> answers;
-
+    public Light finishedLight;
     // Start is called before the first frame update
     public void Initiate()
     {
@@ -37,10 +37,15 @@ public class Quiz : MonoBehaviour
     {
         if (CorrectAnswer == value)
         {
-            StartCoroutine(Destruct());
+            GetComponent<Collider>().enabled = false;
+            finishedLight.enabled = true;
             return true;
         }
-        else { return false; }
+        else {
+            
+            return false;
+
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

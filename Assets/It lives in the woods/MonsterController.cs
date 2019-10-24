@@ -15,6 +15,7 @@ public class MonsterController : MonoBehaviour
     void Start()
     {
         StartCoroutine(FindScent());
+        StartCoroutine(ticker());
     }
     IEnumerator FindScent()
     {
@@ -25,7 +26,7 @@ public class MonsterController : MonoBehaviour
 
     public void NextScent()
     {
-        Debug.Log("Monster moving to next scent");
+        
         int ScentIndex = Player.GetComponent<LeaveTrace>().scents.IndexOf(Scent);
         if (ScentIndex != 0)
         {
@@ -36,13 +37,30 @@ public class MonsterController : MonoBehaviour
             Scent = Player;
         }
     }
+    public float tickInterval;
+    public bool show = false;
+    public GameObject MapSphere;
+    IEnumerator ticker()
+    {
+        yield return new WaitForSeconds(tickInterval);
+        if(show)
+            StartCoroutine(shower());
+        StartCoroutine(ticker());
+    }
+    IEnumerator shower()
+    {
+        MapSphere.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        MapSphere.SetActive(false);
+    }
+
     public void JumpScare()
     {
-        
+        Player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().dead = true;   
         GetComponent<Animator>().SetFloat("Speed", 0);
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled=false;
-        transform.LookAt(Player.transform.position);
-        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        Vector3 offset = Player.transform.position - GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Hips).position;
+        GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Hips).LookAt(Player.transform.position);
         transform.position = ScarePosition.transform.position;
         JumpScareEvent.Invoke();
         GetComponent<Animator>().SetTrigger("scream");
@@ -58,13 +76,24 @@ public class MonsterController : MonoBehaviour
             return;
         }
         GetComponent<Animator>().SetFloat("Speed", GetComponent<UnityEngine.AI.NavMeshAgent>().speed);
-        if(Vector3.Distance(transform.position, Player.transform.position) < 50) { music.volume = 0.5f + 0.5f / Vector3.Distance(transform.position, Player.transform.position); }
+        if(Vector3.Distance(transform.position, Player.transform.position) < 100)
+        {
+            show = true;
+            music.volume = 0.2f + 0.8f / Vector3.Distance(transform.position, Player.transform.position);
+            tickInterval = 4 / Vector3.Distance(transform.position, Player.transform.position);
+
+        }
+        else
+        {
+            show = false;
+            tickInterval = 1;
+        }
         if (Scent != null) {
             GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(Scent.transform.position);
             int scentIndex = Player.GetComponent<LeaveTrace>().scents.IndexOf(Scent);
             if (scentIndex < savedScentPosition)
             {
-                Debug.Log(Time.timeSinceLevelLoad.ToString()+"monster lost scent");
+                
                 Scent = null;
                 StartCoroutine(FindScent());
             }
