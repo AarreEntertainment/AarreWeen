@@ -20,7 +20,7 @@ public class MonsterController : MonoBehaviour
     IEnumerator FindScent()
     {
         savedScentPosition = 0;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         Scent = Player.GetComponent<LeaveTrace>().scents[Player.GetComponent<LeaveTrace>().scents.Count - 1];
     }
 
@@ -53,19 +53,29 @@ public class MonsterController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         MapSphere.SetActive(false);
     }
-
+    public Color deathColor;
+    public string deathscene;
+    public string currentscene;
+    IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(3);
+        SavedScenes.StartTransition(currentscene, deathscene, deathColor);
+    }
     public void JumpScare()
     {
+        if (jumpScared)
+            return;
         Player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().dead = true;   
         GetComponent<Animator>().SetFloat("Speed", 0);
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled=false;
-        Vector3 offset = Player.transform.position - GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Hips).position;
-        GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Hips).LookAt(Player.transform.position);
+        Vector3 offset = Player.transform.position - transform.position;
         transform.position = ScarePosition.transform.position;
+        transform.LookAt(Player.transform.position);
+
         JumpScareEvent.Invoke();
         GetComponent<Animator>().SetTrigger("scream");
         jumpScared = true;
-        
+        StartCoroutine(ChangeScene());
     }
     int savedScentPosition = 0;
     // Update is called once per frame
@@ -80,7 +90,8 @@ public class MonsterController : MonoBehaviour
         {
             show = true;
             music.volume = 0.2f + 0.8f / Vector3.Distance(transform.position, Player.transform.position);
-            tickInterval = 4 / Vector3.Distance(transform.position, Player.transform.position);
+            tickInterval = 4-
+                4 / Vector3.Distance(transform.position, Player.transform.position);
 
         }
         else

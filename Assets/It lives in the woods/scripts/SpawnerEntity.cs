@@ -10,9 +10,12 @@ public class SpawnerEntity : MonoBehaviour
     public GameObject Tombstone;
     public GameObject Page;
     public float radius;
-    // Start is called before the first frame update
+
+
     void Start()
     {
+    }
+    void load() { 
         int placedTombStones = 0;
         List<Question> Nuquestions = new List<Question>();
         Nuquestions.AddRange(questions.AllQuestions);
@@ -29,7 +32,7 @@ public class SpawnerEntity : MonoBehaviour
                     Question question = Nuquestions[ind];
                     Nuquestions.RemoveAt(ind);
                     tomb.GetComponent<Quiz>().question = question;
-                    tomb.GetComponent<Quiz>().Initiate();
+                    tomb.GetComponent<Quiz>().Initiate(this);
 
                     if (requiredPages.IndexOf(tomb.GetComponent<Quiz>().CorrectAnswer)==-1){
                         requiredPages.Add(tomb.GetComponent<Quiz>().CorrectAnswer);
@@ -57,11 +60,15 @@ public class SpawnerEntity : MonoBehaviour
         }
 
         
-    }   
-
+    }
+    bool activated = false;
     // Update is called once per frame
     void Update()
     {
-        
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "itlives" && !activated)
+        {
+            activated = true;
+            load();
+        }
     }
 }

@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/MainMenu.unity
+    guid: 57e413f0b9ee3764e96d5121e696c89a
+  - enabled: 1
+    path: Assets/It lives in the woods/itlives.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Transition.unity
+    guid: 41e2c8285aced7d47a37daa72a5c9edb
+  - enabled: 1
+    path: Assets/It lives in the woods/DeathScene.unity
+    guid: cdb167ffb666e0044ae663f2854f78ef
   m_configObjects: {}

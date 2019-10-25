@@ -10,9 +10,11 @@ public class Quiz : MonoBehaviour
     public int CorrectAnswer;
     public List<string> answers;
     public Light finishedLight;
+    public SpawnerEntity spawner;
     // Start is called before the first frame update
-    public void Initiate()
+    public void Initiate(SpawnerEntity spawn)
     {
+            spawner = spawn;
             questionText = question.QuestionText;
         
             List<string> quests = new List<string>() { question.CorrectAnswer, question.WrongAnswerOne, question.WrongAnswerTwo };
@@ -39,6 +41,7 @@ public class Quiz : MonoBehaviour
         {
             GetComponent<Collider>().enabled = false;
             finishedLight.enabled = true;
+            spawner.TombStonesToPlace--;
             return true;
         }
         else {

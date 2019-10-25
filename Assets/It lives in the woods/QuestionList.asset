@@ -13,39 +13,60 @@ MonoBehaviour:
   m_Name: QuestionList
   m_EditorClassIdentifier: 
   AllQuestions:
-  - QuestionText: "Ket\xE4 kekkonen on"
-    CorrectAnswer: no vittu residentti
-    WrongAnswerOne: "ket\xE4?"
-    WrongAnswerTwo: ei kinosta
+  - QuestionText: Don't let what get inside your head?
+    CorrectAnswer: Tweets
+    WrongAnswerOne: Words
+    WrongAnswerTwo: Posts
     RelevantPaper: 0
-  - QuestionText: "Ket\xE4 rane on?"
-    CorrectAnswer: Rane on Kingi
-    WrongAnswerOne: "joku perseen silim\xE4"
-    WrongAnswerTwo: joku hippo potamus
+  - QuestionText: How old was I when I was in blackface?
+    CorrectAnswer: 9
+    WrongAnswerOne: 14
+    WrongAnswerTwo: 20
     RelevantPaper: 1
-  - QuestionText: "Mit\xE4 kekoinen tyk\xE4si teh\xE4"
-    CorrectAnswer: "HIIHT\xC4\xC4"
-    WrongAnswerOne: "Narkata ja k\xE4yd\xE4 huorissa"
-    WrongAnswerTwo: "top 3 hevib\xE4ndit"
+  - QuestionText: What was the play called?
+    CorrectAnswer: Tiernapojat
+    WrongAnswerOne: Nummisuutarit
+    WrongAnswerTwo: Kalevala
+    RelevantPaper: 1
+  - QuestionText: In Finland you had to wear the
+    CorrectAnswer: Makeup
+    WrongAnswerOne: Dress
+    WrongAnswerTwo: Feathers
+    RelevantPaper: 1
+  - QuestionText: They broke another
+    CorrectAnswer: Window
+    WrongAnswerOne: Promise
+    WrongAnswerTwo: Plate
+    RelevantPaper: 2
+  - QuestionText: Your * is so afraid she wet her bed again
+    CorrectAnswer: Sister
+    WrongAnswerOne: Brother
+    WrongAnswerTwo: Daughter
     RelevantPaper: 0
-  - QuestionText: "Mit\xE4 Rane ker\xE4s"
-    CorrectAnswer: "Kindereit\xE4"
-    WrongAnswerOne: "Syytteit\xE4"
-    WrongAnswerTwo: Vankeja
-    RelevantPaper: 1
-  - QuestionText: "Min\xE4 vuonna Rane opetti?"
-    CorrectAnswer: 94-98 (paras)
-    WrongAnswerOne: joku paska kaks tuhatta luku
-    WrongAnswerTwo: lasten kakstuhat kymmenen luku
-    RelevantPaper: 1
+  - QuestionText: '* Citrate'
+    CorrectAnswer: Fentanyl
+    WrongAnswerOne: Ambien
+    WrongAnswerTwo: Adderall
+    RelevantPaper: 0
   - QuestionText: 
     CorrectAnswer: 
     WrongAnswerOne: 
     WrongAnswerTwo: 
     RelevantPaper: 0
   AllPapers:
-  - "Kekkonen on residentti ja urho kaleva ja kaikin puolin hieno mies.\nKalju mies
-    t\xE4m\xE4 residentti kans oli ja tykk\xE4si hiiht\xE4\xE4 ja tehd\xE4 kaikkea
-    no.\nKaikkea Kovin Miehek\xE4st\xE4 ja Hienoa.\nHieno mies oli."
-  - "Rane (Rauno Linna) on kingi ja historian maikka joka opetti alle kirjoittanutta
-    vuosina 1994-1998.\n\nRane on Hieno mies ja ker\xE4si kindereit\xE4 ja kaikkea."
+  - Hi, I just read those tweets they're making about you. Some of those are really
+    mean. So sorry, man. Don't let them get inside your head.
+  - Dude, they just found an old video of 9 year old you in blackface, from the Tiernapojat
+    play. No use in explaining that in Finland you had to wear the makeup.
+  - They broke another window. Your sister's so afraid she wet her bed again. Are
+    you all right? Worried about you. Mom.
+  - You're being compared to the vampire castle guy. I hope you're all right. You
+    can come have a beer any time. Some old chat log got leaked again. They say you
+    made a slur in it.
+  - I'm sorry but I think we should stop seeing each other. I'm getting some of the
+    fallout too. I can't date milkshake duck. So sorry.
+  - 'Fentanyl Citrate
+
+    Inj., USP
+
+    100 mcg. Fentanyl/2mg'

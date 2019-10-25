@@ -17,7 +17,7 @@ public class LeaveTrace : MonoBehaviour
                 scents.Add(newscent);
             }
         }
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(2);
         GameObject currScent = scents[scents.Count - 1];
         scents.RemoveAt(scents.Count - 1);
         List<GameObject> replacementScents = new List<GameObject>();
@@ -30,12 +30,16 @@ public class LeaveTrace : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LeaveScent());
+        
     }
-
+    bool activated;
     // Update is called once per frame
     void Update()
     {
-        
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "itlives" && !activated)
+        {
+            activated = true;
+            StartCoroutine(LeaveScent());
+        }
     }
 }
