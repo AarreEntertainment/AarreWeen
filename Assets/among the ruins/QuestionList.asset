@@ -18,6 +18,11 @@ MonoBehaviour:
     WrongAnswerOne: Words
     WrongAnswerTwo: Posts
     RelevantPaper: 0
+  - QuestionText: What can you go back to?
+    CorrectAnswer: Studies
+    WrongAnswerOne: Work
+    WrongAnswerTwo: Family
+    RelevantPaper: 0
   - QuestionText: How old was I when I was in blackface?
     CorrectAnswer: 9
     WrongAnswerOne: 14
@@ -42,29 +47,53 @@ MonoBehaviour:
     CorrectAnswer: Sister
     WrongAnswerOne: Brother
     WrongAnswerTwo: Daughter
-    RelevantPaper: 0
+    RelevantPaper: 2
+  - QuestionText: What stuff shouldn't you do anymore?
+    CorrectAnswer: Streaming
+    WrongAnswerOne: Blogging
+    WrongAnswerTwo: Tweeting
+    RelevantPaper: 2
+  - QuestionText: You're being compared to the * castle guy
+    CorrectAnswer: Vampire
+    WrongAnswerOne: Medieval
+    WrongAnswerTwo: Sand
+    RelevantPaper: 3
+  - QuestionText: What was in the chat log?
+    CorrectAnswer: a slur
+    WrongAnswerOne: a name
+    WrongAnswerTwo: an insult
+    RelevantPaper: 3
+  - QuestionText: I ran into the biggest * streamer in a dating app
+    CorrectAnswer: woke
+    WrongAnswerOne: gaming
+    WrongAnswerTwo: minecraft
+    RelevantPaper: 4
+  - QuestionText: '...and he turned out to be a huge *'
+    CorrectAnswer: transphobe
+    WrongAnswerOne: dick
+    WrongAnswerTwo: racist
+    RelevantPaper: 4
   - QuestionText: '* Citrate'
     CorrectAnswer: Fentanyl
     WrongAnswerOne: Ambien
     WrongAnswerTwo: Adderall
-    RelevantPaper: 0
-  - QuestionText: 
-    CorrectAnswer: 
-    WrongAnswerOne: 
-    WrongAnswerTwo: 
-    RelevantPaper: 0
+    RelevantPaper: 5
   AllPapers:
   - Hi, I just read those tweets they're making about you. Some of those are really
-    mean. So sorry, man. Don't let them get inside your head.
-  - Dude, they just found an old video of 9 year old you in blackface, from the Tiernapojat
+    mean. So sorry, man. Don't let them get inside your head. You can always go back
+    to your studies.
+  - Dude, someone just posted a video of 9 year old you in blackface, from the Tiernapojat
     play. No use in explaining that in Finland you had to wear the makeup.
   - They broke another window. Your sister's so afraid she wet her bed again. Are
-    you all right? Worried about you. Mom.
-  - You're being compared to the vampire castle guy. I hope you're all right. You
-    can come have a beer any time. Some old chat log got leaked again. They say you
-    made a slur in it.
-  - I'm sorry but I think we should stop seeing each other. I'm getting some of the
-    fallout too. I can't date milkshake duck. So sorry.
+    you all right? Worried about you. You shouldn't do that streaming stuff anymore.
+    I love you. Mom.
+  - You're being compared to the vampire castle guy. I hope you're all right. Some
+    old chat log got leaked again. They say you made an ableist slur in it. I think
+    it's Maria. She's been dismissing you in several posts.
+  - 'I ran into the biggest woke streamer in a dating app and he turned out to be
+    a huge transphobe.
+
+    *read more*'
   - 'Fentanyl Citrate
 
     Inj., USP

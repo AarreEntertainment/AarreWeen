@@ -30,6 +30,7 @@ public class Quiz : MonoBehaviour
             CorrectAnswer = answers.IndexOf(question.CorrectAnswer);
         
     }
+    public GameObject sphere;
     IEnumerator Destruct()
     {
         yield return new WaitForSeconds(1);
@@ -42,6 +43,12 @@ public class Quiz : MonoBehaviour
             GetComponent<Collider>().enabled = false;
             finishedLight.enabled = true;
             spawner.TombStonesToPlace--;
+            sphere.SetActive(false);
+            GetComponent<AudioSource>().Play();
+            if (spawner.TombStonesToPlace <= 0)
+            {
+                spawner.GetComponent<SceneLoader>().Load();
+            }
             return true;
         }
         else {
