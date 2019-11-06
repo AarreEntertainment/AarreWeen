@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff597ad69a21b254c8ebe2ec0dd602ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentSceneName: DeathScene
+  CurrentSceneName: WinScene
   NextSceneName: MainMenu
   transitionColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &1176555154
