@@ -13,7 +13,16 @@ public class TankControls : MonoBehaviour
 
     }
     public GameObject cube;
+    public ghostScare camera;
+    public void AddGhost(GameObject obj)
+    {
+        camera.relevantGhosts.Add(obj);
+    }
 
+    public void RemoveGhost(GameObject obj)
+    {
+        camera.relevantGhosts.Remove(obj);
+    }
 
     // Update is called once per frame
     void Update()
