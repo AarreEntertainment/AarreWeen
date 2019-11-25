@@ -22,10 +22,20 @@ public class SpawnerEntity : MonoBehaviour
         TombStonesToPlace = tombstones.Length;
         for (int i =0;i<tombstones.Length;i++)
         {
-            
-            int ind = Random.Range(0, Nuquestions.Count - 1);
-            
-            Question question = Nuquestions[ind];
+            bool noDuplicates = false;
+            int ind = 0;
+            Question question = null;
+
+            while (!noDuplicates)
+            {
+                ind = Random.Range(0, Nuquestions.Count - 1);
+                question = Nuquestions[ind];
+                if (requiredPages.IndexOf(question.RelevantPaper) == -1)
+                {
+                    noDuplicates = true;
+                }
+            }
+            Debug.Log("tombstone added");
             
             tombstones[i].GetComponent<Quiz>().question = question;
             tombstones[i].GetComponent<Quiz>().Initiate(this);
@@ -51,7 +61,7 @@ public class SpawnerEntity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "itlives" && !activated)
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "ruins" && !activated)
         {
             activated = true;
             load();

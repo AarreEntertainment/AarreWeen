@@ -712,7 +712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentSceneName: atrIntro
-  NextSceneName: itlives
+  NextSceneName: ruins
   transitionColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &908733622
 GameObject:

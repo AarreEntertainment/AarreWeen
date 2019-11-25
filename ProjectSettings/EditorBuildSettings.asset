@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/among the ruins/atrIntro.unity
     guid: 57bb18f56545dde4790b02b428600fee
   - enabled: 1
-    path: Assets/among the ruins/itlives.unity
+    path: Assets/among the ruins/ruins.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Transition.unity

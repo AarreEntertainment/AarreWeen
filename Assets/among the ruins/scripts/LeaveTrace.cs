@@ -36,7 +36,7 @@ public class LeaveTrace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "itlives" && !activated)
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "ruins" && !activated)
         {
             activated = true;
             StartCoroutine(LeaveScent());

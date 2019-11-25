@@ -13,89 +13,77 @@ MonoBehaviour:
   m_Name: QuestionList
   m_EditorClassIdentifier: 
   AllQuestions:
-  - QuestionText: Don't let what get inside your head?
-    CorrectAnswer: Tweets
-    WrongAnswerOne: Words
-    WrongAnswerTwo: Posts
+  - QuestionText: What did Jane Doe not know?
+    CorrectAnswer: Where Greece is
+    WrongAnswerOne: Where Croatia is
+    WrongAnswerTwo: Where Albania is
     RelevantPaper: 0
-  - QuestionText: What can you go back to?
-    CorrectAnswer: Studies
-    WrongAnswerOne: Work
-    WrongAnswerTwo: Family
+  - QuestionText: What happened to Jane Doe?
+    CorrectAnswer: Sawed and Buried
+    WrongAnswerOne: Hung and Strung
+    WrongAnswerTwo: Drowned with a Frown
     RelevantPaper: 0
-  - QuestionText: How old was I when I was in blackface?
-    CorrectAnswer: 9
-    WrongAnswerOne: 14
-    WrongAnswerTwo: 20
+  - QuestionText: Did people tell the killer boy's story?
+    CorrectAnswer: His tale went unsung
+    WrongAnswerOne: He was reviled by many
+    WrongAnswerTwo: He will be missed
     RelevantPaper: 1
-  - QuestionText: What was the play called?
-    CorrectAnswer: Tiernapojat
-    WrongAnswerOne: Nummisuutarit
-    WrongAnswerTwo: Kalevala
+  - QuestionText: What happened to the boy?
+    CorrectAnswer: Hung from a tree
+    WrongAnswerOne: Drowned in the lake
+    WrongAnswerTwo: Bullet in the head
     RelevantPaper: 1
-  - QuestionText: In Finland you had to wear the
-    CorrectAnswer: Makeup
-    WrongAnswerOne: Dress
-    WrongAnswerTwo: Feathers
-    RelevantPaper: 1
-  - QuestionText: They broke another
-    CorrectAnswer: Window
-    WrongAnswerOne: Promise
-    WrongAnswerTwo: Plate
+  - QuestionText: The driver did what?
+    CorrectAnswer: Took too many drinks
+    WrongAnswerOne: Lied
+    WrongAnswerTwo: Screamed at a ghost
     RelevantPaper: 2
-  - QuestionText: Your * is so afraid she wet her bed again
-    CorrectAnswer: Sister
-    WrongAnswerOne: Brother
-    WrongAnswerTwo: Daughter
+  - QuestionText: What could you smell?
+    CorrectAnswer: Burning
+    WrongAnswerOne: Death
+    WrongAnswerTwo: Danger
     RelevantPaper: 2
-  - QuestionText: What stuff shouldn't you do anymore?
-    CorrectAnswer: Streaming
-    WrongAnswerOne: Blogging
-    WrongAnswerTwo: Tweeting
-    RelevantPaper: 2
-  - QuestionText: You're being compared to the * castle guy
-    CorrectAnswer: Vampire
-    WrongAnswerOne: Medieval
-    WrongAnswerTwo: Sand
+  - QuestionText: Was it a ghost or was it a...
+    CorrectAnswer: Hitchhiker
+    WrongAnswerOne: Woman
+    WrongAnswerTwo: Shadow
     RelevantPaper: 3
-  - QuestionText: What was in the chat log?
-    CorrectAnswer: a slur
-    WrongAnswerOne: a name
-    WrongAnswerTwo: an insult
+  - QuestionText: How old was the passenger when she died?
+    CorrectAnswer: Twenty
+    WrongAnswerOne: Nineteen
+    WrongAnswerTwo: Eighteen
     RelevantPaper: 3
-  - QuestionText: I ran into the biggest * streamer in a dating app
-    CorrectAnswer: woke
-    WrongAnswerOne: gaming
-    WrongAnswerTwo: minecraft
+  - QuestionText: The backseat...
+    CorrectAnswer: Party animal
+    WrongAnswerOne: Of my Trans Am
+    WrongAnswerTwo: Is bloody
     RelevantPaper: 4
-  - QuestionText: '...and he turned out to be a huge *'
-    CorrectAnswer: transphobe
-    WrongAnswerOne: dick
-    WrongAnswerTwo: racist
+  - QuestionText: What's lodged in his skull
+    CorrectAnswer: A Compact disc
+    WrongAnswerOne: A piece of metal
+    WrongAnswerTwo: A cell phone
     RelevantPaper: 4
-  - QuestionText: '* Citrate'
-    CorrectAnswer: Fentanyl
-    WrongAnswerOne: Ambien
-    WrongAnswerTwo: Adderall
+  - QuestionText: She wanted to stray instead of what?
+    CorrectAnswer: Being timid
+    WrongAnswerOne: Staying home
+    WrongAnswerTwo: Being safe
+    RelevantPaper: 5
+  - QuestionText: Birds of prey are eating
+    CorrectAnswer: Your eyeball
+    WrongAnswerOne: Your flesh
+    WrongAnswerTwo: Maggots
     RelevantPaper: 5
   AllPapers:
-  - Hi, I just read those tweets they're making about you. Some of those are really
-    mean. So sorry, man. Don't let them get inside your head. You can always go back
-    to your studies.
-  - Dude, someone just posted a video of 9 year old you in blackface, from the Tiernapojat
-    play. No use in explaining that in Finland you had to wear the makeup.
-  - They broke another window. Your sister's so afraid she wet her bed again. Are
-    you all right? Worried about you. You shouldn't do that streaming stuff anymore.
-    I love you. Mom.
-  - You're being compared to the vampire castle guy. I hope you're all right. Some
-    old chat log got leaked again. They say you made an ableist slur in it. I think
-    it's Maria. She's been dismissing you in several posts.
-  - 'I ran into the biggest woke streamer in a dating app and he turned out to be
-    a huge transphobe.
-
-    *read more*'
-  - 'Fentanyl Citrate
-
-    Inj., USP
-
-    100 mcg. Fentanyl/2mg'
+  - Jane Doe lied, and then she died. She didn't know where Greece is, so the boy
+    sawed her to pieces. Buried the bits in the backwoods, thus spoke no more falsehoods.
+  - Mortified by his deed, the boy's time was to cede, his fate he could foresee,
+    bloated, hanging from a tree, he wanted to stay strung, though his tale went unsung.
+  - One drink too many, I doubt he should have taken any, the burning you could smell,
+    when he drove them right to hell, enjoy the ride, take a breath, for soon it will
+    end in your untimely death.
+  - Was it a hitchhiker or was it a ghost? Dear passenger, this is your goalpost,
+    i guess your scream was one too many, now you're dead at no more than twenty.
+  - The backseat party animal himself, you had the chance, oh no but you had to dance,
+    drive my friend, take a risk! What's lodged in your skull? A compact disc.
+  - The quiet one, I assume. This one night you let yourself bloom. Instead of being
+    timid you wanted to stray. Who's eating your eyeball, a bird of prey?

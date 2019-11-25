@@ -24,6 +24,29 @@ public class MonsterController : MonoBehaviour
         Scent = Player.GetComponent<LeaveTrace>().scents[Player.GetComponent<LeaveTrace>().scents.Count - 1];
     }
 
+    public void FindTeleportSpot()
+    {
+        Vector3 loc = Vector3.zero;
+        bool foundLoc = false;
+        Vector3 pos = transform.position;
+
+        while (!foundLoc)
+        {
+            if(Physics.Raycast(new Vector3(Random.value*150-75, 100, Random.value*150-75), Vector3.down, out RaycastHit hit, 300))
+            {
+
+                    if(Vector3.Distance(hit.point, Player.transform.position) > 25 && hit.collider.tag=="SoftGround")
+                    {
+                        foundLoc = true;
+                        loc = hit.point;
+                    }
+
+            }
+        }
+        transform.position = loc;
+        Debug.Log("Teleported from " + pos.ToString() + " to " + loc.ToString());
+    }
+
     public void NextScent()
     {
         
@@ -106,6 +129,7 @@ public class MonsterController : MonoBehaviour
             {
                 
                 Scent = null;
+                FindTeleportSpot();
                 StartCoroutine(FindScent());
             }
             else
