@@ -36,6 +36,7 @@ public class soul : MonoBehaviour
         {
             if(Vector3.Distance(player.transform.position, transform.position) < 2)
             {
+                player.GetComponent<TankControls>().souls.Remove(this.transform);
                 GetComponentInParent<AudioSource>().Play();
                 GetComponentInParent<Renderer>().materials = new Material[] { OffMaterial };
                 Destroy(gameObject);

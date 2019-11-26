@@ -4,9 +4,29 @@ using UnityEngine;
 
 public class ghostScare : MonoBehaviour
 {
+
+    
+    public float stress;
     delegate void ghostFunction();
     List<ghostFunction> ghostFuncs = new List<ghostFunction>();
+    
     public List<GameObject> relevantGhosts;
+
+    public GameObject tentacle;
+
+    void tentacleAppear()
+    {
+    
+        Vector3 pos = transform.position + transform.forward * (10+Random.value*4) + Vector3.up * 4 + transform.right * (Random.value * 2 - 1);
+        if (Physics.Raycast(pos, Vector3.down, out RaycastHit hit, Mathf.Infinity))
+        {
+            GameObject tent = Instantiate(tentacle);
+            tent.transform.position = hit.point;
+        }
+
+    }
+
+    
 
     public void firstGhostEv()
     {
@@ -27,6 +47,7 @@ public class ghostScare : MonoBehaviour
         gamo.transform.position = position;
         yield return new WaitForSeconds(0.05f);
         gamo.SetActive(false);
+        stress += 1;
     }
     IEnumerator run(Vector3 position)
     {
@@ -39,7 +60,22 @@ public class ghostScare : MonoBehaviour
         yield return new WaitForSeconds(3f);
         gamo.GetComponent<Animator>().SetBool("run", false);
         gamo.SetActive(false);
+        stress += 2;
     }
+
+    IEnumerator cloud(Vector3 position)
+    {
+        GameObject gamo = relevantGhosts[Random.Range(0, relevantGhosts.Count)];
+        gamo.SetActive(true);
+        int amt = Random.Range(1, 11);
+        for(int i = 0; i < amt; i++)
+        {
+            gamo.transform.position = position + Vector3.forward * (Random.value * 10) + Vector3.left * ((Random.value * 20) - 10);
+            yield return new WaitForSeconds(0.02f);
+        }
+        stress += 4;
+    }
+
     public void secondGhostEv()
     {
         Vector3 ret = Vector3.zero;
@@ -64,16 +100,22 @@ public class ghostScare : MonoBehaviour
     }
 
     IEnumerator timer() {
-        yield return new WaitForSeconds(Random.value * 10);
+        yield return new WaitForSeconds(Random.value * 8);
+
+        if (Random.value < (0.1f * (float)relevantGhosts.Count))
+        {
+            ghostFuncs[Random.Range(0, ghostFuncs.Count)]();
+        }
+        if(stress>0)
+            tentacleAppear();
         
-        if(Random.value<(0.05f*(float)relevantGhosts.Count))
-        ghostFuncs[Random.Range(0,ghostFuncs.Count)]();
         StartCoroutine(timer());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(stress>0)
+            stress -= Time.deltaTime / 2;
     }
 }

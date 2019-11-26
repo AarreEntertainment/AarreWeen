@@ -23,4 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/among the ruins/DeathScene.unity
     guid: cdb167ffb666e0044ae663f2854f78ef
+  - enabled: 1
+    path: Assets/lost/lostIntro.unity
+    guid: 1bbd5415981051245b29fd7daa895ec2
+  - enabled: 1
+    path: Assets/lost/lost.unity
+    guid: 818bcae7c49dbca47babda94b703aeb6
+  - enabled: 1
+    path: Assets/lost/lostLose.unity
+    guid: d88522eef4ccbbb42b1bbb28c8247f29
+  - enabled: 1
+    path: Assets/lost/lostWin.unity
+    guid: 0d1c630abbd6d514f8c8ae3c0038d990
   m_configObjects: {}
