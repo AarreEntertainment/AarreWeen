@@ -21,12 +21,12 @@ MonoBehaviour:
   - QuestionText: What happened to Jane Doe?
     CorrectAnswer: Sawed and Buried
     WrongAnswerOne: Hung and Strung
-    WrongAnswerTwo: Drowned with a Frown
+    WrongAnswerTwo: Drowned
     RelevantPaper: 0
   - QuestionText: Did people tell the killer boy's story?
-    CorrectAnswer: His tale went unsung
-    WrongAnswerOne: He was reviled by many
-    WrongAnswerTwo: He will be missed
+    CorrectAnswer: Tale went unsung
+    WrongAnswerOne: Reviled by many
+    WrongAnswerTwo: Will be missed
     RelevantPaper: 1
   - QuestionText: What happened to the boy?
     CorrectAnswer: Hung from a tree
