@@ -12,11 +12,13 @@ public class buttonListener : MonoBehaviour
     public string buttonName;
     public UnityEngine.Events.UnityEvent ev;
     // Update is called once per frame
+    bool pressed = false;
     void Update()
     {
-        if (Input.GetButtonDown(buttonName))
+        if (Input.GetButtonDown(buttonName) && !pressed)
         {
             ev.Invoke();
+            
         }
         
     }

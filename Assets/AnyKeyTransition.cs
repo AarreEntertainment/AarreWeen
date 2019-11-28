@@ -25,7 +25,7 @@ public class AnyKeyTransition : MonoBehaviour
     {
         if (active && UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetButtonDown("Jump")) {
             GetComponent<SceneLoader>().Load();
-            
+            active = false;
         }
     }
 }

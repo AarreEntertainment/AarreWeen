@@ -586,6 +586,11 @@ PrefabInstance:
       propertyPath: JumpScareEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 2139718185468739293, guid: f2588a8f126db464a9c16f28c9737e20,
+        type: 3}
+      propertyPath: currentscene
+      value: ruins
+      objectReference: {fileID: 0}
     - target: {fileID: 2006631757723868919, guid: f2588a8f126db464a9c16f28c9737e20,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9588,6 +9593,11 @@ PrefabInstance:
       propertyPath: music
       value: 
       objectReference: {fileID: 860892030}
+    - target: {fileID: 2139718185468739293, guid: f2588a8f126db464a9c16f28c9737e20,
+        type: 3}
+      propertyPath: currentscene
+      value: ruins
+      objectReference: {fileID: 0}
     - target: {fileID: 2006631757723868919, guid: f2588a8f126db464a9c16f28c9737e20,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

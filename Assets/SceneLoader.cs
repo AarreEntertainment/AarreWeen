@@ -7,9 +7,15 @@ public class SceneLoader : MonoBehaviour
     public string CurrentSceneName;
     public string NextSceneName;
     public Color transitionColor;
+    bool loaded = false;
     public void Load()
     {
-        SavedScenes.StartTransition(CurrentSceneName, NextSceneName, transitionColor);
+        if (!loaded)
+        {
+            loaded = true;
+            SavedScenes.StartTransition(CurrentSceneName, NextSceneName, transitionColor);
+        }
+        
     }
     // Start is called before the first frame update
     void Start()
