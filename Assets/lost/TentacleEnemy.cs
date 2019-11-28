@@ -17,7 +17,7 @@ public class TentacleEnemy : MonoBehaviour
 
     public void destruct()
     {
-        Destroy(gameObject);
+        Destroy(transform.root.gameObject);
     }
     // Update is called once per frame
     void Update()

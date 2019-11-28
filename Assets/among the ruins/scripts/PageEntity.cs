@@ -9,8 +9,10 @@ public class PageEntity : MonoBehaviour
     {
         if (other.GetComponent<ChangePage>() != null)
         {
-            Debug.Log("player entered");
             other.GetComponent<ChangePage>().Change(Page);
+            other.GetComponent<ChangePage>().StartTimer(this.gameObject);
+            other.GetComponent<ChangePage>().timerRunning = true;
+            
         }
     }
     private void OnTriggerExit(Collider other)
@@ -18,7 +20,9 @@ public class PageEntity : MonoBehaviour
         if (other.GetComponent<ChangePage>() != null)
         {
             other.GetComponent<ChangePage>().Close();
+
+            other.GetComponent<ChangePage>().timerRunning = false;
+            other.GetComponent<ChangePage>().timer = 0;
         }
     }
-
 }

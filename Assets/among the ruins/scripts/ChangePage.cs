@@ -14,9 +14,34 @@ public class ChangePage : MonoBehaviour
     public Image panelImage;
     public GameObject gravestone;
     public GameObject page;
+
+    public int pageCount;
+
+    public UnityEngine.Events.UnityEvent ZeroPagesEvent;
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (timerRunning&&timer>0)
+        {
+            
+            timer -= Time.deltaTime;
+            slider.value = timer;
+        }
+        if (timerRunning && timer <= 0)
+        {
+            Close();
+            collectAudio.Play();
+            pageCount--;
+            if (pageCount == 0)
+            {
+                
+                ZeroPagesEvent.Invoke();
+            }
+            Destroy(original);
+            original = null;
+            timerRunning = false;
+        }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             CheckCorrect(0);
         }
@@ -40,6 +65,17 @@ public class ChangePage : MonoBehaviour
             panel.SetActive(false);
             GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterController>().JumpScare();
         }
+    }
+    public AudioSource collectAudio;
+    public bool timerRunning;
+    public float timer;
+    public UnityEngine.UI.Slider slider;
+    public GameObject original;
+    public void StartTimer(GameObject original_)
+    {
+        timer = 4;
+        timerRunning = true;
+        original = original_;
     }
     public void Close()
     {

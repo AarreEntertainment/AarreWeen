@@ -79,7 +79,7 @@ public class TankControls : MonoBehaviour
 
             float dot = Vector3.Dot(anim.GetBoneTransform(HumanBodyBones.Hips).forward, (getclosest().position - anim.GetBoneTransform(HumanBodyBones.Hips).position).normalized);
            
-            if (dot > 0.7f) { staticSound.volume = 0.4f * (dot - 0.7f); }
+            if (dot > 0.7f) { staticSound.volume = 0.8f * (dot - 0.7f); }
         }
 
  
