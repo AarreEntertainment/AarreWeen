@@ -44190,6 +44190,27 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1718815024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718815019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24994c7bab8d436a8b302ce62dfa856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  submitButton: 20
+  cancelButton: 21
+  analogMoveThreshold: 0.5
+  moveRepeatFirstDuration: 0.8
+  moveRepeatDelayDuration: 0.1
+  forceModuleActive: 0
+  allowMouseInput: 1
+  focusOnMouseHover: 0
+  allowTouchInput: 1
 --- !u!114 &1718815025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44205,6 +44226,21 @@ MonoBehaviour:
   CurrentSceneName: lost
   NextSceneName: 
   transitionColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &1718815026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718815019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1001 &1719355250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54202,16 +54238,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2057682983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: c7b5e8de77c5b4597ae7fbfb49a95e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  logDebugInfo: 1
+  invertYAxis: 0
+  useFixedUpdate: 0
+  dontDestroyOnLoad: 1
+  suspendInBackground: 0
+  enableICade: 0
+  enableXInput: 0
+  xInputOverrideUpdateRate: 0
+  xInputUpdateRate: 0
+  xInputOverrideBufferSize: 0
+  xInputBufferSize: 0
+  enableNativeInput: 1
+  nativeInputEnableXInput: 1
+  nativeInputPreventSleep: 0
+  nativeInputOverrideUpdateRate: 0
+  nativeInputUpdateRate: 0
+  customProfiles: []
 --- !u!114 &2057682985
 MonoBehaviour:
   m_ObjectHideFlags: 0

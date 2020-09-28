@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using InControl;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -27,11 +28,32 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_CameraTargetRot = camera.localRotation;
         }
 
+        MyyCharacterActions characterActions;
+        bool initd = false;
+        // Start is called before the first frame update
+        void init()
+        {
+            //Cursor.visible = false;
+            characterActions = new MyyCharacterActions();
+            characterActions.lLeft.AddDefaultBinding(InputControlType.RightStickLeft);
+            characterActions.lRight.AddDefaultBinding(InputControlType.RightStickRight);
+            characterActions.lUp.AddDefaultBinding(InputControlType.RightStickUp);
+            characterActions.lDown.AddDefaultBinding(InputControlType.RightStickDown);
+
+            characterActions.lLeft.AddDefaultBinding(Mouse.NegativeX);
+            characterActions.lRight.AddDefaultBinding(Mouse.PositiveX);
+            characterActions.lUp.AddDefaultBinding(Mouse.PositiveY);
+            characterActions.lDown.AddDefaultBinding(Mouse.NegativeY);
+            initd = true;
+        }
+
 
         public void LookRotation(Transform character, Transform camera)
         {
-            float yRot = CrossPlatformInputManager.GetAxis("Mouse X") * XSensitivity;
-            float xRot = CrossPlatformInputManager.GetAxis("Mouse Y") * YSensitivity;
+            if (!initd)
+                init();
+            float yRot = characterActions.Look.LastValue.x * XSensitivity;
+            float xRot = characterActions.Look.LastValue.y * YSensitivity;
 
             m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
             m_CameraTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);
@@ -61,7 +83,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if(!lockCursor)
             {//we force unlock the cursor if the user disable the cursor locking helper
                 Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+               //  Cursor.visible = true;
             }
         }
 
@@ -86,12 +108,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (m_cursorIsLocked)
             {
                 Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+              //  Cursor.visible = false;
             }
             else if (!m_cursorIsLocked)
             {
                 Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+              //  Cursor.visible = true;
             }
         }
 

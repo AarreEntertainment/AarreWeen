@@ -3,9 +3,46 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
+using InControl;
+
+public class MyyCharacterActions : PlayerActionSet
+{
+    public PlayerAction Jump;
+    public PlayerAction Run;
+    public PlayerAction mUp;
+    public PlayerAction mDown;
+    public PlayerAction mLeft;
+    public PlayerAction mRight;
+
+    public PlayerAction lUp;
+    public PlayerAction lDown;
+    public PlayerAction lLeft;
+    public PlayerAction lRight;
+
+    public PlayerTwoAxisAction Move;
+    public PlayerTwoAxisAction Look;
+
+    public MyyCharacterActions()
+    {
+        Jump = CreatePlayerAction("Jump");
+        Run = CreatePlayerAction("Run");
+        mLeft = CreatePlayerAction("Move left");
+        mRight = CreatePlayerAction("Move right");
+        mUp = CreatePlayerAction("Move up");
+        mDown = CreatePlayerAction("Move down");
+        lLeft = CreatePlayerAction("Look left");
+        lRight = CreatePlayerAction("Look right");
+        lUp = CreatePlayerAction("Look up");
+        lDown = CreatePlayerAction("Look down");
+        Move = CreateTwoAxisPlayerAction(mLeft, mRight, mDown, mUp);
+        Look = CreateTwoAxisPlayerAction(lLeft, lRight, lDown, lUp);
+    }
+
+}
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
+    
     [RequireComponent(typeof (CharacterController))]
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
@@ -59,6 +96,36 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public bool dead = false;
 
+        MyyCharacterActions characterActions;
+        void OnEnable()
+        {
+            characterActions = new MyyCharacterActions();
+
+            characterActions.mLeft.AddDefaultBinding(InputControlType.LeftStickLeft);
+            characterActions.mRight.AddDefaultBinding(InputControlType.LeftStickRight);
+            characterActions.mUp.AddDefaultBinding(InputControlType.LeftStickUp);
+            characterActions.mDown.AddDefaultBinding(InputControlType.LeftStickDown);
+
+            characterActions.mLeft.AddDefaultBinding(Key.LeftArrow);
+            characterActions.mRight.AddDefaultBinding(Key.RightArrow);
+            characterActions.mUp.AddDefaultBinding(Key.UpArrow);
+            characterActions.mDown.AddDefaultBinding(Key.DownArrow);
+
+
+            characterActions.mLeft.AddDefaultBinding(Key.A);
+            characterActions.mRight.AddDefaultBinding(Key.D);
+            characterActions.mUp.AddDefaultBinding(Key.W);
+            characterActions.mDown.AddDefaultBinding(Key.S);
+
+
+            characterActions.Jump.AddDefaultBinding(InputControlType.Action4);
+            characterActions.Jump.AddDefaultBinding(Key.Space);
+
+            characterActions.Run.AddDefaultBinding(InputControlType.Action1);
+            characterActions.Run.AddDefaultBinding(Key.RightControl);
+
+        }
+
         // Update is called once per frame
         private void Update()
         {
@@ -68,7 +135,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                m_Jump = characterActions.Run.WasPressed;
             }
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
@@ -213,8 +280,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void GetInput(out float speed)
         {
             // Read input
-            float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-            float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+            float horizontal = characterActions.Move.Value.x;
+            float vertical = characterActions.Move.Value.y;
 
 
             bool waswalking = m_IsWalking;
@@ -222,7 +289,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
-            m_IsWalking = Input.GetButton("Fire1");
+            m_IsWalking = characterActions.Run.IsPressed;
 #endif
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;

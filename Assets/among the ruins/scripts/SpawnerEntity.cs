@@ -71,7 +71,7 @@ public class SpawnerEntity : MonoBehaviour
             thispage.transform.SetPositionAndRotation(locs[locrand].position, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
             pages.RemoveAt(pagerand);
             locs.RemoveAt(locrand);
-            Debug.Log(i);
+            //Debug.Log(i);
         }
     }
     bool activated = false;

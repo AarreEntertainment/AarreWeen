@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Aarre Entertainment
-  productName: Haunting of the Haunted
+  companyName: Aarre
+  productName: Ruins of the Lost
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -39,7 +39,9 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
+  m_SplashScreenLogos:
+  - logo: {fileID: 21300000, guid: 6c6c8481e42b4694d9337b3efeaf9fbd, type: 3}
+    duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -279,7 +281,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 267cd48f5cafb5d49990408a87b7a4d2, type: 3}
+      m_Icon: {fileID: 2800000, guid: e6167b640e33a45489f69265cd87ad39, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using InControl;
 public class AnyKeyTransition : MonoBehaviour
 {
     public GameObject AnyKeyIndicator;
@@ -23,7 +23,7 @@ public class AnyKeyTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (active && UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetButtonDown("Jump")) {
+        if (active && (InputManager.AnyKeyIsPressed || InputManager.ActiveDevice.Action4.IsPressed)) {
             GetComponent<SceneLoader>().Load();
             active = false;
         }

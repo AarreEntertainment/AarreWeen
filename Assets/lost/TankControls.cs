@@ -2,15 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using InControl;
 
+[RequireComponent(typeof(InControlInputModule))]
 public class TankControls : MonoBehaviour
 {
+    MyCharacterActions characterActions;
     public Animator anim;
     public string LoseSceneName;
     public string WinSceneName;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
+        characterActions = new MyCharacterActions();
+
+        characterActions.mLeft.AddDefaultBinding(InputControlType.LeftStickLeft);
+        characterActions.mRight.AddDefaultBinding(InputControlType.LeftStickRight);
+        characterActions.mUp.AddDefaultBinding(InputControlType.LeftStickUp);
+        characterActions.mDown.AddDefaultBinding(InputControlType.LeftStickDown);
+
+        characterActions.mLeft.AddDefaultBinding(Key.LeftArrow);
+        characterActions.mRight.AddDefaultBinding(Key.RightArrow);
+        characterActions.mUp.AddDefaultBinding(Key.UpArrow);
+        characterActions.mDown.AddDefaultBinding(Key.DownArrow);
+
+        characterActions.Jump.AddDefaultBinding(InputControlType.Action4);
+        characterActions.Jump.AddDefaultBinding(Key.Space);
+
+        characterActions.Run.AddDefaultBinding(InputControlType.Action1);
+        characterActions.Run.AddDefaultBinding(Key.RightControl);
 
     }
     bool dead = false;
@@ -84,11 +104,10 @@ public class TankControls : MonoBehaviour
 
  
 
-        float x = CrossPlatformInputManager.GetAxis("Horizontal");
-        float z = CrossPlatformInputManager.GetAxis("Vertical");
-        bool run = CrossPlatformInputManager.GetButton("Fire1");
+        float x = characterActions.Move.LastValue.x;
+        float z = characterActions.Move.LastValue.y;
+        bool run = characterActions.Run.IsPressed;
 
-        
 
         anim.SetFloat("Speed", z);
         anim.SetFloat("Direction", x);
